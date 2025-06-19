@@ -5,6 +5,7 @@ import JobCard from "./JobCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
 const TabCategories = () => {
   const [jobs, setJobs] = useState([]);
 
