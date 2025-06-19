@@ -2,12 +2,13 @@ import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../providers/AuthProvider";
+import axios from "axios";
 
 const AddJob = () => {
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const title = form.title.value;
@@ -32,6 +33,12 @@ const AddJob = () => {
       description,
     };
     console.log(formData);
+
+    // make a post request: 
+    const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/add-job`, formData);
+    console.log(data)
+
+
   };
 
   return (
