@@ -11,7 +11,7 @@ const AddJob = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const title = form.title.value;
+    const title = form.job_title.value;
     const email = form.email.value;
     const deadline = startDate;
     const category = form.category.value;
